@@ -6,7 +6,7 @@
 
     <groupId>io.github.jieshengnp</groupId>
     <artifactId>JSUtilities</artifactId>
-    <version>1.1.1</version>
+    <version>1.2.0</version>
 
     <repositories>
         <repository>
@@ -27,6 +27,8 @@
     <properties>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
 </project>
