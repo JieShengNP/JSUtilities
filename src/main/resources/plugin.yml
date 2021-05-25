@@ -1,5 +1,5 @@
 name: JSUtilities
-version: {project.version}
+version: ${project.version}
 author: JieSheng03
 main: io.github.jieshengnp.jsutilities.JSUtilities
 api-version: 1.16
