@@ -28,6 +28,7 @@ public class FeedCommand implements TabExecutor {
                     selectedPlayer.setFoodLevel(20);
                     if (sender.getName() != selectedPlayer.getName()){
                         selectedPlayer.sendMessage("§a[JSUtils] §6You have been fed by " + sender.getName() + "!");
+                        sender.sendMessage("§a[JSUtils] §6" + selectedPlayer.getName() + " has been fed!");
                     } else {
                         selectedPlayer.sendMessage("§a[JSUtils] §6You have been fed!");
                     }
