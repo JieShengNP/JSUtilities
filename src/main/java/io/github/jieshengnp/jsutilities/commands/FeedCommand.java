@@ -13,7 +13,7 @@ public class FeedCommand implements TabExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("feed")){
-            if (args.length == 0) {
+            if (args.length == 0 && sender.hasPermission("jsutilities.feed")) {
                 if (sender instanceof Player) {
                     Player player = (Player) sender;
                     player.setFoodLevel(20);
@@ -22,7 +22,7 @@ public class FeedCommand implements TabExecutor {
                     sender.sendMessage("§a[JSUtils] §4/feed <PlayerName>");
                 }
                 return true;
-            } else if (args.length == 1){
+            } else if (args.length == 1 && sender.hasPermission("jsutilities.feed.others")){
                 Player selectedPlayer = Bukkit.getPlayerExact(args[0]);
                 if (selectedPlayer != null){
                     selectedPlayer.setFoodLevel(20);
@@ -36,6 +36,9 @@ public class FeedCommand implements TabExecutor {
                 } else {
                     sender.sendMessage("§a[JSUtils] §4Invalid player name '" + args[0] + "'!");
                 }
+            } else {
+                sender.sendMessage("§a[JSUtils] §4You do not have permission!");
+                return true;
             }
         }
         return false;

@@ -7,9 +7,32 @@ commands:
   heal:
     usage: /<command> [PlayerName]
     description: Heals Player.
+    permission: jsutilities.heal
   feed:
     usage: /<command> [PlayerName]
     description: Feeds Player.
+    permission: jsutilities.feed
   getpos:
     usage: /<command> [PlayerName]
     description: Gets Player Position.
+    permission: jsutilities.getpos
+
+permissions:
+  jsutilities.heal:
+    description: Heals player.
+  jsutilities.feed:
+    description: Feeds player.
+  jsutilities.getpos:
+    description: Gets position of player.
+  jsutilities.heal.others:
+    description: Heals selected player.
+    children:
+      jsutilities.heal: true
+  jsutilities.feed.others:
+    description: Feeds selected player.
+    children:
+      jsutilities.feed: true
+  jsutilities.getpos.others:
+    description: Gets position of selected player.
+    children:
+      jsutilities.getpos: true

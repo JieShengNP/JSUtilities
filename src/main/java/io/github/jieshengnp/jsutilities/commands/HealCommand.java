@@ -14,7 +14,7 @@ public class HealCommand implements TabExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("heal")){
-            if (args.length == 0) {
+            if (args.length == 0 && sender.hasPermission("jsutilities.heal")) {
                 if (sender instanceof Player) {
                     Player player = (Player) sender;
                     double maxHealth = player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue();
@@ -24,7 +24,7 @@ public class HealCommand implements TabExecutor {
                     sender.sendMessage("§a[JSUtils] §4/heal <PlayerName>");
                 }
                 return true;
-            } else if (args.length == 1){
+            } else if (args.length == 1 && sender.hasPermission("jsutilities.heal.others")){
                 Player selectedPlayer = Bukkit.getPlayerExact(args[0]);
                 if (selectedPlayer != null){
                     double maxHealth = selectedPlayer.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue();
@@ -40,6 +40,9 @@ public class HealCommand implements TabExecutor {
                 } else {
                     sender.sendMessage("§a[JSUtils] §4Invalid player name '" + args[0] + "'!");
                 }
+            } else {
+                sender.sendMessage("§a[JSUtils] §4You do not have permission!");
+                return true;
             }
         }
         return false;

@@ -13,7 +13,7 @@ public class GetPosCommand implements TabExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(command.getName().equalsIgnoreCase("getpos")){
-            if (args.length == 0) {
+            if (args.length == 0 && sender.hasPermission("jsutilities.getpos")) {
                 if (sender instanceof Player) {
                     Player player = (Player) sender;
                     Location location = player.getLocation();
@@ -22,7 +22,7 @@ public class GetPosCommand implements TabExecutor {
                     sender.sendMessage("§a[JSUtils] §4/getpos <PlayerName>");
                 }
                 return true;
-            } else if (args.length == 1){
+            } else if (args.length == 1 && sender.hasPermission("jsutilities.getpos.others")){
                 Player selectedPlayer = Bukkit.getPlayerExact(args[0]);
                 if (selectedPlayer != null){
                     Location location = selectedPlayer.getLocation();
@@ -35,6 +35,9 @@ public class GetPosCommand implements TabExecutor {
                 } else {
                     sender.sendMessage("§a[JSUtils] §4Invalid player name '" + args[0] + "'!");
                 }
+            } else {
+                sender.sendMessage("§a[JSUtils] §4You do not have permission!");
+                return true;
             }
         }
         return false;
