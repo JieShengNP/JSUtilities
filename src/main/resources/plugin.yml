@@ -1,0 +1,8 @@
+name: JSUtilities
+version: 1.1
+author: JieSheng03
+main: io.github.jieshengnp.jsutilities.JSUtilities
+commands:
+  heal:
+    usage: /<command> <PlayerName>
+    description: Heals Player.
