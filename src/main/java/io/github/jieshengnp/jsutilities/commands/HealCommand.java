@@ -29,8 +29,12 @@ public class HealCommand implements TabExecutor {
                 if (selectedPlayer != null){
                     double maxHealth = selectedPlayer.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue();
                     selectedPlayer.setHealth(maxHealth);
-                    if (sender.getName() == selectedPlayer.getName())
-                    selectedPlayer.sendMessage("§a[JSUtils] §6You have been healed by " + sender.getName() + "!");
+                    if (sender.getName() != selectedPlayer.getName()) {
+                        selectedPlayer.sendMessage("§a[JSUtils] §6You have been healed by " + sender.getName() + "!");
+                    } else {
+
+                        selectedPlayer.sendMessage("§a[JSUtils] §6You have been healed!");
+                    }
                     return true;
                 } else {
                     sender.sendMessage("§a[JSUtils] §4Invalid player name '" + args[0] + "'!");
