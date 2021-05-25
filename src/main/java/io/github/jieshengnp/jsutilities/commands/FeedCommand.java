@@ -44,15 +44,7 @@ public class FeedCommand implements TabExecutor {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
         if (args.length == 1){
-            List<String> playerListNames = new ArrayList<>();
-            Player[] players = new Player[Bukkit.getOnlinePlayers().size()];
-            Bukkit.getOnlinePlayers().toArray(players);
-            for (int i = 0; i < players.length; i++){
-                if(players[i].getName().startsWith(args[0])) {
-                    playerListNames.add(players[i].getName());
-                }
-            }
-            return playerListNames;
+            return null;
         }
         else{
             return new ArrayList<>();
