@@ -1,6 +1,7 @@
 package io.github.jieshengnp.jsutilities.commands;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -26,10 +27,29 @@ public class GetPosCommand implements TabExecutor {
                 Player selectedPlayer = Bukkit.getPlayerExact(args[0]);
                 if (selectedPlayer != null){
                     Location location = selectedPlayer.getLocation();
+                    String dimensionName = location.getWorld().getName();
+                    switch(dimensionName) {
+                        case "world":
+                            dimensionName = "The Overworld(" + dimensionName + ")";
+                            break;
+                        case "world_nether":
+                            dimensionName = "The Nether(" + dimensionName + ")";
+                            break;
+                        case "world_the_end":
+                            dimensionName = "The End(" + dimensionName + ")";
+                            break;
+                    }
                     if (sender.getName() != selectedPlayer.getName()){
-                        sender.sendMessage("§a[JSUtils] §6Current position of " + selectedPlayer.getName() + ": X:" + location.getBlockX() + " Y:" + location.getBlockY() + " Z:" + location.getBlockZ());
+                        sender.sendMessage("§a[JSUtils] §6Current position of " + selectedPlayer.getName() + ":");
+                        sender.sendMessage(ChatColor.RED + "Dimension: " + ChatColor.GREEN + dimensionName);
+                        sender.sendMessage(ChatColor.RED + "X: " + ChatColor.GREEN + location.getBlockX());
+                        sender.sendMessage(ChatColor.RED + "Y: " + ChatColor.GREEN + location.getBlockY());
+                        sender.sendMessage(ChatColor.RED + "Z: " + ChatColor.GREEN + location.getBlockZ());
                     } else {
-                        sender.sendMessage("§a[JSUtils] §6Current position: X:" + location.getBlockX() + " Y:" + location.getBlockY() + " Z:" + location.getBlockZ());
+                        sender.sendMessage("§a[JSUtils] §6Current position:");
+                        sender.sendMessage(ChatColor.RED + "X: " + ChatColor.GREEN + location.getBlockX());
+                        sender.sendMessage(ChatColor.RED + "Y: " + ChatColor.GREEN + location.getBlockY());
+                        sender.sendMessage(ChatColor.RED + "Z: " + ChatColor.GREEN + location.getBlockZ());
                     }
                     return true;
                 } else {
