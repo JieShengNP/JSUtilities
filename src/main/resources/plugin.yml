@@ -16,23 +16,33 @@ commands:
     usage: /<command> [PlayerName]
     description: Gets Player Position.
     permission: jsutilities.getpos
+  fly:
+    usage: /<command> [PlayerName]
+    description: Toggle flight for user.
+    permission: jsutilities.fly
 
 permissions:
   jsutilities.heal:
     description: Heals player.
-  jsutilities.feed:
-    description: Feeds player.
-  jsutilities.getpos:
-    description: Gets position of player.
   jsutilities.heal.others:
     description: Heals selected player.
     children:
       jsutilities.heal: true
+  jsutilities.feed:
+    description: Feeds player.
   jsutilities.feed.others:
     description: Feeds selected player.
     children:
       jsutilities.feed: true
+  jsutilities.getpos:
+    description: Gets position of player.
   jsutilities.getpos.others:
     description: Gets position of selected player.
+    children:
+      jsutilities.getpos: true
+  jsutilities.fly:
+    description: Toggle flight of player.
+  jsutilities.fly.others:
+    description: Toggle flight of selected player.
     children:
       jsutilities.getpos: true

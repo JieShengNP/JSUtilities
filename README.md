@@ -11,3 +11,6 @@ Fill player's saturation level.
 ### Getpos  
 Gets the location of the player. 
 `- /getpos <PlayerName>`
+### Fly
+Toggle flight for player.
+`- /fly <PlayerName>`

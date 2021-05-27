@@ -1,6 +1,7 @@
 package io.github.jieshengnp.jsutilities;
 
 import io.github.jieshengnp.jsutilities.commands.FeedCommand;
+import io.github.jieshengnp.jsutilities.commands.FlyCommand;
 import io.github.jieshengnp.jsutilities.commands.GetPosCommand;
 import io.github.jieshengnp.jsutilities.commands.HealCommand;
 import org.bukkit.ChatColor;
@@ -12,6 +13,7 @@ public class JSUtilities extends JavaPlugin {
         getCommand("heal").setExecutor(new HealCommand());
         getCommand("feed").setExecutor(new FeedCommand());
         getCommand("getpos").setExecutor(new GetPosCommand());
+        getCommand("fly").setExecutor(new FlyCommand());
         getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "[JSUtilities] is now Enabled.");
     }
 
