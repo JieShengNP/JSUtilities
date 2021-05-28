@@ -6,11 +6,11 @@ A minecraft plugin that allows the player do certain actions.
 Brings player to max health.  
 `- /heal <PlayerName>`
 ### Feed  
-Fill player's saturation level. 
+Fill player's saturation level.  
 `- /feed <PlayerName>`
 ### Getpos  
-Gets the location of the player. 
+Gets the location of the player.  
 `- /getpos <PlayerName>`
 ### Fly
-Toggle flight for player.
+Toggle flight for player.  
 `- /fly <PlayerName>`
