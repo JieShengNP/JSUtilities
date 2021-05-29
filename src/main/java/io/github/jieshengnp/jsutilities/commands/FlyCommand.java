@@ -57,7 +57,7 @@ public class FlyCommand implements TabExecutor {
             player.sendMessage("§a[JSUtils] §6Flight is now §aenabled§6!");
             if (sender != null) {
                 if (sender.getName() != player.getName()) {
-                    sender.sendMessage("§a[JSUtils] §6Flight set §4enabled §6for " + player.getName() + "!");
+                    sender.sendMessage("§a[JSUtils] §6Flight set §aenabled §6for " + player.getName() + "!");
                 }
             }
         }
